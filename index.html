@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stadi Pets - Clínica Veterinaria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables y Reset */
+        :root {
+            --primary: #1a3a5f; /* Azul marino principal */
+            --primary-dark: #0d2a4a;
+            --secondary: #f39c12; /* Naranja acento */
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --light-gray: #ecf0f1;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --pet-green: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        /* Encabezado y Navegación */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            height: 60px;
+            width: 60px;
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .company-name span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        nav a.active {
+            color: var(--primary);
+        }
+        
+        nav a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Contenido Principal */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            min-height: 70vh;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Página de Inicio */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 95, 0.8), rgba(26, 58, 95, 0.8)), url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            height: 500px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-img {
+            height: 200px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+        
+        .feature-content {
+            padding: 1.5rem;
+        }
+        
+        .feature-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Página de Equipo */
+        .team {
+            margin-top: 2rem;
+        }
+        
+        .team h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .member-photo {
+            height: 250px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--gray);
+            overflow: hidden;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-position {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .member-description {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Página de Servicios */
+        .services {
+            margin-top: 2rem;
+        }
+        
+        .services h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-price {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Página de Contacto */
+        .contact {
+            margin-top: 2rem;
+        }
+        
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 58, 95, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Testimonios */
+        .testimonials {
+            margin: 4rem 0;
+            padding: 3rem 0;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 4rem;
+            color: var(--light-gray);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            color: var(--dark);
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Pie de página */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h3,
+        .footer-social h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-links h3::after,
+        .footer-social h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animaciones */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .stat-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                </div>
+                <div class="company-name">Stadi<span>Pets</span></div>
+            </div>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Inicio</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Servicios</a></li>
+                    <li><a href="#" class="nav-link" data-page="team">Equipo</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Página de Inicio -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Cuidamos de tu mejor amigo</h1>
+                    <p>En Stadi Pets ofrecemos atención veterinaria de calidad con amor y profesionalismo.</p>
+                    <a href="#" class="btn pulse" data-page="contact">Solicitar cita</a>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Años de experiencia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Mascotas atendidas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Profesionales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Urgencias</div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-img" style="background-color: #3498db;">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Consultas Veterinarias</h3>
+                        <p>Revisiones completas, diagnóstico y tratamiento para mantener a tu mascota sana y feliz.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img" style="background-color: var(--pet-green);">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Vacunación</h3>
+                        <p>Programas de vacunación personalizados para proteger a tu mascota de enfermedades.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img" style="background-color: #9b59b6;">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Estética Canina</h3>
+                        <p>Baño, corte de pelo, limpieza dental y más para mantener a tu mascota radiante.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonials">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "El equipo de Stadi Pets salvó la vida de mi perro Max cuando tuvo una emergencia. Profesionales, amables y con instalaciones impecables."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>María Rodríguez</h4>
+                                <p>Dueña de Max (Golden Retriever)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Llevo a mis gatos aquí desde hace años. Siempre reciben la mejor atención y los tratamientos son muy efectivos. ¡Recomendado 100%!"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Carlos Méndez</h4>
+                                <p>Dueño de Luna y Sol (Gatos siameses)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "El servicio de peluquería es excelente. Mi caniche siempre sale feliz y con un corte impecable. Además, los precios son justos."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Laura Jiménez</h4>
+                                <p>Dueña de Toby (Caniche)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Página de Servicios -->
+        <section id="services" class="page">
+            <h1>Nuestros Servicios</h1>
+            <p>En Stadi Pets ofrecemos una amplia gama de servicios para mantener a tu mascota saludable y feliz en todas las etapas de su vida.</p>
+            
+            <div class="services">
+                <h2>Servicios Veterinarios</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: #3498db;">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Consulta General</h3>
+                            <div class="service-price">Desde $25</div>
+                            <p class="service-description">Revisiones completas, diagnóstico y tratamiento para mantener a tu mascota saludable.</p>
+                            <a href="#" class="btn">Solicitar cita</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: var(--pet-green);">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Vacunación</h3>
+                            <div class="service-price">Desde $20</div>
+                            <p class="service-description">Programa completo de vacunas para perros, gatos y otras mascotas.</p>
+                            <a href="#" class="btn">Solicitar cita</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: #9b59b6;">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Cirugías</h3>
+                            <div class="service-price">Consultar precio</div>
+                            <p class="service-description">Castraciones, esterilizaciones y otras intervenciones quirúrgicas.</p>
+                            <a href="#" class="btn">Solicitar cita</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: #e74c3c;">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Urgencias 24/7</h3>
+                            <div class="service-price">$50 (consulta inicial)</div>
+                            <p class="service-description">Servicio de emergencias disponible las 24 horas, todos los días.</p>
+                            <a href="#" class="btn">Llamar ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services" style="margin-top: 4rem;">
+                <h2>Servicios de Estética</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: #f1c40f;">
+                            <i class="fas fa-shower"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Baño Completo</h3>
+                            <div class="service-price">Desde $15</div>
+                            <p class="service-description">Baño con productos especializados, secado y cepillado.</p>
+                            <a href="#" class="btn">Reservar</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: #f1c40f;">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Corte de Pelo</h3>
+                            <div class="service-price">Desde $25</div>
+                            <p class="service-description">Corte según raza o estilo personalizado que prefieras.</p>
+                            <a href="#" class="btn">Reservar</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: #f1c40f;">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Limpieza Dental</h3>
+                            <div class="service-price">Desde $40</div>
+                            <p class="service-description">Cuidado dental profesional para prevenir enfermedades.</p>
+                            <a href="#" class="btn">Reservar</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-color: #f1c40f;">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Corte de Uñas</h3>
+                            <div class="service-price">$10</div>
+                            <p class="service-description">Corte profesional y seguro de uñas para tu mascota.</p>
+                            <a href="#" class="btn">Reservar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Página de Equipo -->
+        <section id="team" class="page">
+            <h1>Nuestro Equipo</h1>
+            <p>En Stadi Pets contamos con un equipo de profesionales altamente capacitados y apasionados por el bienestar animal.</p>
+            
+            <div class="team">
+                <h2>Veterinarios</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dra. Valeria Rojas</h3>
+                            <span class="member-position">Veterinaria Jefa</span>
+                            <p class="member-description">Especialista en medicina interna con más de 12 años de experiencia. Apasionada por la oncología veterinaria.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dr. Javier Morales</h3>
+                            <span class="member-position">Cirujano Veterinario</span>
+                            <p class="member-description">Especializado en cirugías de tejidos blandos y ortopedia. Miembro del Colegio de Cirujanos Veterinarios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dra. Sofía Mendoza</h3>
+                            <span class="member-position">Veterinaria de Emergencias</span>
+                            <p class="member-description">Especialista en cuidados críticos y atención de emergencias. Disponible 24/7 para tus mascotas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dr. Carlos Fuentes</h3>
+                            <span class="member-position">Veterinario General</span>
+                            <p class="member-description">Especializado en medicina preventiva y nutrición animal. Siempre con un enfoque preventivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team" style="margin-top: 4rem;">
+                <h2>Personal de Apoyo</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Ana Torres</h3>
+                            <span class="member-position">Técnica Veterinaria</span>
+                            <p class="member-description">Más de 8 años de experiencia en cuidado postoperatorio y manejo de pacientes críticos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Miguel Ángel Díaz</h3>
+                            <span class="member-position">Asistente Veterinario</span>
+                            <p class="member-description">Especialista en manejo de animales exóticos y rehabilitación.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Lucía Fernández</h3>
+                            <span class="member-position">Estilista Canina</span>
+                            <p class="member-description">Certificada en estética canina con más de 10 años de experiencia. Mima a cada mascota como si fuera suya.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Roberto Sánchez</h3>
+                            <span class="member-position">Gerente de Clínica</span>
+                            <p class="member-description">Garantiza que nuestras instalaciones y servicios cumplan con los más altos estándares de calidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Página de Contacto -->
+        <section id="contact" class="page">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para responder todas tus preguntas y atender a tu mascota con el cuidado que se merece.</p>
+            
+            <div class="contact">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Información de Contacto</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Calle Mascotas Felices #123, Ciudad Animal</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+58 212 555 1234</p>
+                                <p>Urgencias: +58 412 555 5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@stadipets.com</p>
+                                <p>citas@stadipets.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Viernes: 8:00 am - 8:00 pm</p>
+                                <p>Sábados: 9:00 am - 4:00 pm</p>
+                                <p>Urgencias: 24/7</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <div>
+                                <h4>Síguenos</h4>
+                                <div class="social-icons" style="margin-top: 0.5rem;">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Solicita una cita</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="apellido">Apellido *</label>
+                                <input type="text" id="apellido" name="apellido" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="mascota">Tipo de Mascota *</label>
+                                <select id="mascota" name="mascota" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="perro">Perro</option>
+                                    <option value="gato">Gato</option>
+                                    <option value="ave">Ave</option>
+                                    <option value="roedor">Roedor</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="servicio">Servicio Solicitado *</label>
+                                <select id="servicio" name="servicio" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="consulta">Consulta General</option>
+                                    <option value="vacunacion">Vacunación</option>
+                                    <option value="cirugia">Cirugía</option>
+                                    <option value="estetica">Servicio de Estética</option>
+                                    <option value="urgencia">Urgencia</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="comentario">Comentario</label>
+                                <textarea id="comentario" name="comentario"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-submit">Solicitar Cita</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">Stadi<span>Pets</span></div>
+                <p>Clínica veterinaria especializada en el cuidado integral de tus mascotas. Más de 15 años brindando atención profesional y cariñosa.</p>
+                <p>Nuestro compromiso es la salud y felicidad de tus compañeros peludos.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#" data-page="home">Inicio</a></li>
+                    <li><a href="#" data-page="services">Servicios</a></li>
+                    <li><a href="#" data-page="team">Equipo</a></li>
+                    <li><a href="#" data-page="contact">Contacto</a></li>
+                    <li><a href="#">Blog de Consejos</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Boletín de Salud Animal</h3>
+                    <p>Recibe consejos útiles para el cuidado de tu mascota.</p>
+                    <form style="display: flex; margin-top: 1rem;">
+                        <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px 0 0 5px;">
+                        <button type="submit" style="background: var(--secondary); color: var(--dark); border: none; padding: 0 1rem; border-radius: 0 5px 5px 0; cursor: pointer;">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>Clínica Veterinaria Stadi Pets | Ciudad Animal</p>
+            <p>&copy; 2025 Stadi Pets. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Navegación entre páginas
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remover clase activa de todos los enlaces
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Añadir clase activa al enlace clickeado
+                    this.classList.add('active');
+                    
+                    // Ocultar todas las páginas
+                    pages.forEach(page => page.classList.remove('active'));
+                    
+                    // Mostrar la página correspondiente
+                    const targetPage = this.getAttribute('data-page');
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Desplazarse al inicio de la página
+                    window.scrollTo(0, 0);
+                    
+                    // Cerrar menú móvil si está abierto
+                    document.querySelector('nav ul').classList.remove('show');
+                });
+            });
+            
+            // Menú móvil
+            document.querySelector('.mobile-menu').addEventListener('click', function() {
+                document.querySelector('nav ul').classList.toggle('show');
+            });
+            
+            // Botones que cambian de página
+            document.querySelectorAll('[data-page]').forEach(btn => {
+                if(btn.classList.contains('nav-link')) return;
+                
+                btn.addEventListener('click', function(e) {
+                    if(this.tagName === 'A') e.preventDefault();
+                    
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Actualizar navegación
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelector(`.nav-link[data-page="${targetPage}"]`).classList.add('active');
+                    
+                    // Mostrar página
+                    pages.forEach(page => page.classList.remove('active'));
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Desplazarse al inicio de la página
+                    window.scrollTo(0, 0);
+                    
+                    // Cerrar menú móvil si está abierto
+                    document.querySelector('nav ul').classList.remove('show');
+                });
+            });
+            
+            // Manejo del formulario de contacto
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Aquí iría la lógica para enviar el formulario
+                alert('¡Gracias por tu solicitud! Nos pondremos en contacto contigo pronto para confirmar tu cita.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
