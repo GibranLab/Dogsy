@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stadi Pets - Clínica Veterinaria</title>
+    <title>Dogsy - Peluquería y Cuidados Caninos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Variables y Reset */
+        /* Nueva paleta de colores oscuros */
         :root {
-            --primary: #1a3a5f; /* Azul marino principal */
-            --primary-dark: #0d2a4a;
-            --secondary: #f39c12; /* Naranja acento */
+            --primary: #1a2e35; /* Verde azulado oscuro */
+            --primary-dark: #0d1d22;
+            --secondary: #d4af37; /* Dorado */
             --light: #f8f9fa;
             --dark: #2c3e50;
             --gray: #7f8c8d;
             --light-gray: #ecf0f1;
             --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --accent: #c19e53; /* Bronce */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s ease;
             --pet-green: #27ae60;
         }
         
@@ -30,17 +31,23 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            color: var(--light);
+            background-color: var(--primary);
+            background-image: linear-gradient(rgba(26, 46, 53, 0.95), rgba(26, 46, 53, 0.9)), url('https://images.unsplash.com/photo-1500470353952-6c5d8e8e9f7f?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
         }
         
         /* Encabezado y Navegación */
         header {
-            background-color: var(--white);
+            background-color: rgba(26, 46, 53, 0.9);
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(5px);
         }
         
         .header-container {
@@ -61,20 +68,22 @@
         .logo {
             height: 60px;
             width: 60px;
-            background: linear-gradient(135deg, var(--primary), #2c5282);
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: var(--primary-dark);
             font-size: 1.8rem;
             font-weight: bold;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            animation: pulse 3s infinite;
         }
         
         .company-name {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--light);
         }
         
         .company-name span {
@@ -89,7 +98,7 @@
         
         nav a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--light);
             font-weight: 600;
             padding: 0.5rem 0;
             position: relative;
@@ -97,7 +106,7 @@
         }
         
         nav a:hover {
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         nav a::after {
@@ -107,7 +116,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background-color: var(--primary);
+            background-color: var(--secondary);
             transition: var(--transition);
         }
         
@@ -116,7 +125,7 @@
         }
         
         nav a.active {
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         nav a.active::after {
@@ -127,7 +136,7 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         /* Contenido Principal */
@@ -154,7 +163,7 @@
         
         /* Página de Inicio */
         .hero {
-            background: linear-gradient(rgba(26, 58, 95, 0.8), rgba(26, 58, 95, 0.8)), url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(26, 46, 53, 0.8), rgba(26, 46, 53, 0.8)), url('c:\Users\Gibran\Downloads\Imagen de WhatsApp 2025-08-09 a las 03.58.09_d0900b73.jpg') center/cover no-repeat;
             height: 500px;
             border-radius: 10px;
             display: flex;
@@ -165,6 +174,8 @@
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 2px solid rgba(212, 175, 55, 0.3);
         }
         
         .hero-content {
@@ -178,17 +189,25 @@
             font-size: 3rem;
             margin-bottom: 1rem;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            animation: textFadeIn 1.5s ease;
+        }
+        
+        @keyframes textFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            animation: textFadeIn 1.5s ease 0.3s forwards;
+            opacity: 0;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--secondary);
-            color: var(--white);
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            color: var(--primary-dark);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -196,12 +215,32 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            animation: pulse 2s infinite 1s;
         }
         
         .btn:hover {
-            background-color: #e67e22;
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            width: 100%;
         }
         
         .features {
@@ -212,17 +251,20 @@
         }
         
         .feature-card {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--secondary);
         }
         
         .feature-img {
@@ -231,7 +273,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: var(--secondary);
             font-size: 3rem;
         }
         
@@ -240,7 +282,7 @@
         }
         
         .feature-content h3 {
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 0.5rem;
         }
         
@@ -252,7 +294,7 @@
         .team h2 {
             text-align: center;
             margin-bottom: 2rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .team-grid {
@@ -262,11 +304,19 @@
         }
         
         .team-member {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: scale(1.03);
+            border-color: var(--secondary);
         }
         
         .member-photo {
@@ -278,6 +328,17 @@
             font-size: 5rem;
             color: var(--gray);
             overflow: hidden;
+            position: relative;
+        }
+        
+        .member-photo:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 70%, rgba(26, 46, 53, 0.9));
         }
         
         .member-photo img {
@@ -291,20 +352,15 @@
         }
         
         .member-info h3 {
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 0.5rem;
         }
         
         .member-position {
-            color: var(--secondary);
+            color: var(--accent);
             font-weight: 600;
             margin-bottom: 1rem;
             display: block;
-        }
-        
-        .member-description {
-            color: var(--gray);
-            font-size: 0.9rem;
         }
         
         /* Página de Servicios */
@@ -315,7 +371,7 @@
         .services h2 {
             text-align: center;
             margin-bottom: 2rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .service-grid {
@@ -325,47 +381,56 @@
         }
         
         .service-card {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
         }
         
         .service-card:hover {
             transform: scale(1.03);
+            border-color: var(--secondary);
         }
         
         .service-img {
             height: 200px;
-            background-color: var(--light-gray);
+            background-color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .service-content {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-content h3 {
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 0.5rem;
         }
         
         .service-price {
-            color: var(--secondary);
+            color: var(--accent);
             font-weight: 700;
             font-size: 1.2rem;
             margin: 1rem 0;
         }
         
         .service-description {
-            color: var(--gray);
+            color: var(--light-gray);
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
         
         /* Página de Contacto */
@@ -376,7 +441,7 @@
         .contact h2 {
             text-align: center;
             margin-bottom: 2rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .contact-container {
@@ -386,14 +451,16 @@
         }
         
         .contact-info {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 2rem;
             box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
         }
         
         .contact-info h3 {
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 1.5rem;
         }
         
@@ -405,8 +472,8 @@
         }
         
         .contact-icon {
-            background-color: var(--primary);
-            color: var(--white);
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            color: var(--primary-dark);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -414,13 +481,16 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .contact-form {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 2rem;
             box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
         }
         
         .form-group {
@@ -431,7 +501,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--light);
         }
         
         .form-group input,
@@ -439,19 +509,21 @@
         .form-group select {
             width: 100%;
             padding: 0.8rem;
-            border: 1px solid var(--light-gray);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 5px;
             font-family: inherit;
             font-size: 1rem;
             transition: var(--transition);
+            color: var(--light);
         }
         
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 58, 95, 0.2);
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
         
         .form-group textarea {
@@ -460,29 +532,38 @@
         }
         
         .btn-submit {
-            background-color: var(--primary);
-            color: var(--white);
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            color: var(--primary-dark);
             width: 100%;
             padding: 1rem;
             font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
         .btn-submit:hover {
-            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
         
         /* Testimonios */
         .testimonials {
             margin: 4rem 0;
             padding: 3rem 0;
-            background-color: var(--light-gray);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
         }
         
         .testimonials h2 {
             text-align: center;
             margin-bottom: 2rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .testimonial-grid {
@@ -495,11 +576,18 @@
         }
         
         .testimonial-card {
-            background-color: var(--white);
+            background: rgba(26, 46, 53, 0.7);
             border-radius: 10px;
             padding: 1.5rem;
             box-shadow: var(--shadow);
             position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
         }
         
         .testimonial-card::before {
@@ -508,7 +596,7 @@
             top: 10px;
             left: 15px;
             font-size: 4rem;
-            color: var(--light-gray);
+            color: rgba(212, 175, 55, 0.3);
             font-family: Georgia, serif;
             line-height: 1;
         }
@@ -516,7 +604,7 @@
         .testimonial-text {
             margin-top: 1rem;
             padding-left: 1rem;
-            color: var(--dark);
+            color: var(--light);
             font-style: italic;
         }
         
@@ -530,12 +618,14 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: var(--light-gray);
+            background: linear-gradient(to right, var(--secondary), var(--accent));
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 1rem;
             overflow: hidden;
+            color: var(--primary-dark);
+            font-weight: bold;
         }
         
         .author-avatar img {
@@ -545,21 +635,22 @@
         }
         
         .author-info h4 {
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 0.2rem;
         }
         
         .author-info p {
-            color: var(--secondary);
+            color: var(--accent);
             font-size: 0.9rem;
         }
         
         /* Pie de página */
         footer {
-            background-color: var(--primary);
+            background-color: rgba(13, 29, 34, 0.9);
             color: var(--white);
             padding: 2rem 1rem;
             margin-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
         }
         
         .footer-container {
@@ -635,14 +726,14 @@
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
+            color: var(--secondary);
             border-radius: 50%;
             transition: var(--transition);
         }
         
         .social-icons a:hover {
             background-color: var(--secondary);
-            color: var(--dark);
+            color: var(--primary-dark);
             transform: translateY(-5px);
         }
         
@@ -668,10 +759,11 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background-color: var(--white);
+                background-color: rgba(26, 46, 53, 0.95);
                 flex-direction: column;
                 padding: 1rem;
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(5px);
             }
             
             nav ul.show {
@@ -688,14 +780,10 @@
         }
         
         /* Animaciones */
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(212, 175, 55, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
         }
         
         .stats {
@@ -707,22 +795,150 @@
         }
         
         .stat-card {
-            background-color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
         }
         
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 0.5rem;
         }
         
         .stat-label {
-            color: var(--gray);
+            color: var(--accent);
             font-weight: 600;
+        }
+        
+        /* Galería de imágenes */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 70%, rgba(26, 46, 53, 0.9));
+        }
+        
+        /* Efectos de scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Modal de galería */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--secondary);
+        }
+        
+        /* Animación de título */
+        .animate-title {
+            display: inline-block;
+            overflow: hidden;
+        }
+        
+        .animate-title span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+            animation: slideUp 0.5s forwards;
+        }
+        
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -746,6 +962,7 @@
                     <li><a href="#" class="nav-link active" data-page="home">Inicio</a></li>
                     <li><a href="#" class="nav-link" data-page="services">Servicios</a></li>
                     <li><a href="#" class="nav-link" data-page="team">Equipo</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery">Galería</a></li>
                     <li><a href="#" class="nav-link" data-page="contact">Contacto</a></li>
                 </ul>
             </nav>
@@ -758,59 +975,59 @@
         <section id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Cuidamos de tu mejor amigo</h1>
-                    <p>En Stadi Pets ofrecemos atención veterinaria de calidad con amor y profesionalismo.</p>
-                    <a href="#" class="btn pulse" data-page="contact">Solicitar cita</a>
+                    <h1 class="animate-title"><span>C</span><span>u</span><span>i</span><span>d</span><span>a</span><span>m</span><span>o</span><span>s</span> <span>d</span><span>e</span> <span>t</span><span>u</span> <span>m</span><span>e</span><span>j</span><span>o</span><span>r</span> <span>a</span><span>m</span><span>i</span><span>g</span><span>o</span></h1>
+                    <p>En Stadi Pets ofrecemos atención especializada en peluquería y cuidados caninos con amor y profesionalismo.</p>
+                    <a href="#" class="btn" data-page="contact">Solicitar cita</a>
                 </div>
             </div>
             
             <div class="stats">
-                <div class="stat-card">
+                <div class="stat-card fade-in">
                     <div class="stat-number">15+</div>
                     <div class="stat-label">Años de experiencia</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card fade-in">
                     <div class="stat-number">10,000+</div>
                     <div class="stat-label">Mascotas atendidas</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Profesionales</div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Peluqueros expertos</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Urgencias</div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Clientes satisfechos</div>
                 </div>
             </div>
             
             <div class="features">
-                <div class="feature-card">
-                    <div class="feature-img" style="background-color: #3498db;">
-                        <i class="fas fa-stethoscope"></i>
+                <div class="feature-card fade-in">
+                    <div class="feature-img" style="background-color: #1a2e35;">
+                        <i class="fas fa-shower"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Consultas Veterinarias</h3>
-                        <p>Revisiones completas, diagnóstico y tratamiento para mantener a tu mascota sana y feliz.</p>
+                        <h3>Baño Premium</h3>
+                        <p>Baños con productos naturales y de alta calidad, adaptados al tipo de piel y pelaje de tu mascota.</p>
                     </div>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-img" style="background-color: var(--pet-green);">
-                        <i class="fas fa-syringe"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Vacunación</h3>
-                        <p>Programas de vacunación personalizados para proteger a tu mascota de enfermedades.</p>
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-img" style="background-color: #9b59b6;">
+                <div class="feature-card fade-in">
+                    <div class="feature-img" style="background-color: var(--primary);">
                         <i class="fas fa-cut"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Estética Canina</h3>
-                        <p>Baño, corte de pelo, limpieza dental y más para mantener a tu mascota radiante.</p>
+                        <h3>Corte de Pelo</h3>
+                        <p>Cortes según raza o estilo personalizado, realizados por peluqueros especializados.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-img" style="background-color: var(--primary);">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Tratamientos de Spa</h3>
+                        <p>Masajes relajantes, tratamientos hidratantes y aromaterapia para el bienestar de tu mascota.</p>
                     </div>
                 </div>
             </div>
@@ -818,47 +1035,47 @@
             <div class="testimonials">
                 <h2>Lo que dicen nuestros clientes</h2>
                 <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "El equipo de Stadi Pets salvó la vida de mi perro Max cuando tuvo una emergencia. Profesionales, amables y con instalaciones impecables."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>María Rodríguez</h4>
-                                <p>Dueña de Max (Golden Retriever)</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "Llevo a mis gatos aquí desde hace años. Siempre reciben la mejor atención y los tratamientos son muy efectivos. ¡Recomendado 100%!"
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Carlos Méndez</h4>
-                                <p>Dueño de Luna y Sol (Gatos siameses)</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
+                    <div class="testimonial-card fade-in">
                         <div class="testimonial-text">
                             "El servicio de peluquería es excelente. Mi caniche siempre sale feliz y con un corte impecable. Además, los precios son justos."
                         </div>
                         <div class="testimonial-author">
                             <div class="author-avatar">
-                                <i class="fas fa-user"></i>
+                                L
                             </div>
                             <div class="author-info">
                                 <h4>Laura Jiménez</h4>
                                 <p>Dueña de Toby (Caniche)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-text">
+                            "Llevo a mis perros aquí desde hace años. Siempre reciben la mejor atención y los tratamientos son muy efectivos. ¡Recomendado 100%!"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                C
+                            </div>
+                            <div class="author-info">
+                                <h4>Carlos Méndez</h4>
+                                <p>Dueño de Rocky y Max</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-text">
+                            "El equipo de Stadi Pets es increíble. Mi perro tiene miedo a los baños y ellos fueron muy pacientes y amables con él. ¡Volveremos siempre!"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                M
+                            </div>
+                            <div class="author-info">
+                                <h4>María Rodríguez</h4>
+                                <p>Dueña de Luna (Labrador)</p>
                             </div>
                         </div>
                     </div>
@@ -869,108 +1086,108 @@
         <!-- Página de Servicios -->
         <section id="services" class="page">
             <h1>Nuestros Servicios</h1>
-            <p>En Stadi Pets ofrecemos una amplia gama de servicios para mantener a tu mascota saludable y feliz en todas las etapas de su vida.</p>
+            <p>En Stadi Pets ofrecemos una amplia gama de servicios de peluquería y cuidados para mantener a tu mascota saludable y feliz.</p>
             
             <div class="services">
-                <h2>Servicios Veterinarios</h2>
+                <h2>Servicios de Peluquería</h2>
                 <div class="service-grid">
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: #3498db;">
-                            <i class="fas fa-user-md"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: #1a2e35;">
+                            <i class="fas fa-shower"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Consulta General</h3>
+                            <h3>Baño Completo</h3>
                             <div class="service-price">Desde $25</div>
-                            <p class="service-description">Revisiones completas, diagnóstico y tratamiento para mantener a tu mascota saludable.</p>
-                            <a href="#" class="btn">Solicitar cita</a>
+                            <p class="service-description">Baño con productos naturales, secado profesional y cepillado para eliminar enredos.</p>
+                            <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: var(--pet-green);">
-                            <i class="fas fa-syringe"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: var(--primary);">
+                            <i class="fas fa-cut"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Vacunación</h3>
-                            <div class="service-price">Desde $20</div>
-                            <p class="service-description">Programa completo de vacunas para perros, gatos y otras mascotas.</p>
-                            <a href="#" class="btn">Solicitar cita</a>
+                            <h3>Corte de Pelo</h3>
+                            <div class="service-price">Desde $35</div>
+                            <p class="service-description">Corte según raza o estilo personalizado que prefieras para tu mascota.</p>
+                            <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: #9b59b6;">
-                            <i class="fas fa-bone"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: var(--primary);">
+                            <i class="fas fa-tooth"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Cirugías</h3>
-                            <div class="service-price">Consultar precio</div>
-                            <p class="service-description">Castraciones, esterilizaciones y otras intervenciones quirúrgicas.</p>
-                            <a href="#" class="btn">Solicitar cita</a>
+                            <h3>Limpieza Dental</h3>
+                            <div class="service-price">Desde $40</div>
+                            <p class="service-description">Cuidado dental profesional para prevenir enfermedades y mal aliento.</p>
+                            <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: #e74c3c;">
-                            <i class="fas fa-heartbeat"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: var(--primary);">
+                            <i class="fas fa-paw"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Urgencias 24/7</h3>
-                            <div class="service-price">$50 (consulta inicial)</div>
-                            <p class="service-description">Servicio de emergencias disponible las 24 horas, todos los días.</p>
-                            <a href="#" class="btn">Llamar ahora</a>
+                            <h3>Corte de Uñas</h3>
+                            <div class="service-price">$15</div>
+                            <p class="service-description">Corte profesional y seguro de uñas para mantener la salud de las patas.</p>
+                            <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="services" style="margin-top: 4rem;">
-                <h2>Servicios de Estética</h2>
+                <h2>Tratamientos Especiales</h2>
                 <div class="service-grid">
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: #f1c40f;">
-                            <i class="fas fa-shower"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: var(--primary);">
+                            <i class="fas fa-spa"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Baño Completo</h3>
-                            <div class="service-price">Desde $15</div>
-                            <p class="service-description">Baño con productos especializados, secado y cepillado.</p>
+                            <h3>Spa Canino</h3>
+                            <div class="service-price">Desde $50</div>
+                            <p class="service-description">Masaje relajante, tratamiento hidratante y aromaterapia para tu mascota.</p>
                             <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: #f1c40f;">
-                            <i class="fas fa-cut"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: var(--primary);">
+                            <i class="fas fa-seedling"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Corte de Pelo</h3>
-                            <div class="service-price">Desde $25</div>
-                            <p class="service-description">Corte según raza o estilo personalizado que prefieras.</p>
+                            <h3>Tratamiento Antipulgas</h3>
+                            <div class="service-price">Desde $30</div>
+                            <p class="service-description">Baño y tratamiento natural para eliminar y prevenir pulgas y garrapatas.</p>
                             <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: #f1c40f;">
-                            <i class="fas fa-tooth"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: var(--primary);">
+                            <i class="fas fa-hand-holding-heart"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Limpieza Dental</h3>
-                            <div class="service-price">Desde $40</div>
-                            <p class="service-description">Cuidado dental profesional para prevenir enfermedades.</p>
+                            <h3>Cuidado Geriátrico</h3>
+                            <div class="service-price">Desde $45</div>
+                            <p class="service-description">Tratamientos especiales para mascotas mayores con necesidades especiales.</p>
                             <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-img" style="background-color: #f1c40f;">
-                            <i class="fas fa-paw"></i>
+                    <div class="service-card fade-in">
+                        <div class="service-img" style="background-color: var(--primary);">
+                            <i class="fas fa-band-aid"></i>
                         </div>
                         <div class="service-content">
-                            <h3>Corte de Uñas</h3>
-                            <div class="service-price">$10</div>
-                            <p class="service-description">Corte profesional y seguro de uñas para tu mascota.</p>
+                            <h3>Tratamiento Dermatológico</h3>
+                            <div class="service-price">Consultar precio</div>
+                            <p class="service-description">Para mascotas con problemas de piel, alergias o irritaciones.</p>
                             <a href="#" class="btn">Reservar</a>
                         </div>
                     </div>
@@ -981,96 +1198,88 @@
         <!-- Página de Equipo -->
         <section id="team" class="page">
             <h1>Nuestro Equipo</h1>
-            <p>En Stadi Pets contamos con un equipo de profesionales altamente capacitados y apasionados por el bienestar animal.</p>
+            <p>En Stadi Pets contamos con un equipo de peluqueros y cuidadores altamente capacitados y apasionados por el bienestar animal.</p>
             
             <div class="team">
-                <h2>Veterinarios</h2>
+                <h2>Peluqueros Caninos</h2>
                 <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user-md"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583512603806-077998240c7a?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
-                            <h3>Dra. Valeria Rojas</h3>
-                            <span class="member-position">Veterinaria Jefa</span>
-                            <p class="member-description">Especialista en medicina interna con más de 12 años de experiencia. Apasionada por la oncología veterinaria.</p>
+                            <h3>Lucía Fernández</h3>
+                            <span class="member-position">Peluquera Jefa</span>
+                            <p class="member-description">Certificada en estética canina con más de 10 años de experiencia. Especialista en razas de pelo largo.</p>
                         </div>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user-md"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1590086782792-42dd2350140d?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
-                            <h3>Dr. Javier Morales</h3>
-                            <span class="member-position">Cirujano Veterinario</span>
-                            <p class="member-description">Especializado en cirugías de tejidos blandos y ortopedia. Miembro del Colegio de Cirujanos Veterinarios.</p>
+                            <h3>Carlos Mendoza</h3>
+                            <span class="member-position">Especialista en Cortes</span>
+                            <p class="member-description">Experto en cortes de moda y técnicas creativas para hacer de tu mascota la más estilosa.</p>
                         </div>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user-md"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
-                            <h3>Dra. Sofía Mendoza</h3>
-                            <span class="member-position">Veterinaria de Emergencias</span>
-                            <p class="member-description">Especialista en cuidados críticos y atención de emergencias. Disponible 24/7 para tus mascotas.</p>
+                            <h3>María Rojas</h3>
+                            <span class="member-position">Especialista en Baños</span>
+                            <p class="member-description">Con un toque mágico para calmar a las mascotas más nerviosas durante el baño.</p>
                         </div>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user-md"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1590086782957-27c1e15b1e0e?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
-                            <h3>Dr. Carlos Fuentes</h3>
-                            <span class="member-position">Veterinario General</span>
-                            <p class="member-description">Especializado en medicina preventiva y nutrición animal. Siempre con un enfoque preventivo.</p>
+                            <h3>Javier López</h3>
+                            <span class="member-position">Peluquero Senior</span>
+                            <p class="member-description">Especializado en perros de exposición y concursos caninos.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="team" style="margin-top: 4rem;">
-                <h2>Personal de Apoyo</h2>
+                <h2>Cuidadores y Asistentes</h2>
                 <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user-nurse"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
                             <h3>Ana Torres</h3>
-                            <span class="member-position">Técnica Veterinaria</span>
-                            <p class="member-description">Más de 8 años de experiencia en cuidado postoperatorio y manejo de pacientes críticos.</p>
+                            <span class="member-position">Cuidadora Senior</span>
+                            <p class="member-description">Más de 8 años de experiencia en cuidado de mascotas con necesidades especiales.</p>
                         </div>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user-nurse"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1590086782978-5a618b238e37?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
                             <h3>Miguel Ángel Díaz</h3>
-                            <span class="member-position">Asistente Veterinario</span>
-                            <p class="member-description">Especialista en manejo de animales exóticos y rehabilitación.</p>
+                            <span class="member-position">Especialista en Comportamiento</span>
+                            <p class="member-description">Ayuda a las mascotas más nerviosas a sentirse cómodas durante su estancia.</p>
                         </div>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-spa"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583511655826-05700d52b31e?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
-                            <h3>Lucía Fernández</h3>
-                            <span class="member-position">Estilista Canina</span>
-                            <p class="member-description">Certificada en estética canina con más de 10 años de experiencia. Mima a cada mascota como si fuera suya.</p>
+                            <h3>Sofía Gutiérrez</h3>
+                            <span class="member-position">Asistente de Peluquería</span>
+                            <p class="member-description">Especialista en preparación de mascotas antes de los tratamientos de belleza.</p>
                         </div>
                     </div>
                     
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user-tie"></i>
+                    <div class="team-member fade-in">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583512603808-cf1f18a4d0a5?auto=format&fit=crop&w=600&q=80');">
                         </div>
                         <div class="member-info">
                             <h3>Roberto Sánchez</h3>
@@ -1082,6 +1291,62 @@
             </div>
         </section>
         
+        <!-- Galería -->
+        <section id="gallery" class="page">
+            <h1>Galería de Trabajos</h1>
+            <p>Algunos ejemplos de nuestros trabajos de peluquería canina y cuidados especiales.</p>
+            
+            <div class="gallery">
+                <h2>Antes y Después</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro antes del corte">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del corte">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro antes del baño">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del baño">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro con problemas de pelo">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del tratamiento">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery" style="margin-top: 4rem;">
+                <h2>Nuestras Instalaciones</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Sala de espera">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Área de baño">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Área de corte">
+                    </div>
+                    <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Sala de spa">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modal para galería -->
+        <div id="galleryModal" class="modal">
+            <span class="close-modal">&times;</span>
+            <div class="modal-content">
+                <img id="modalImage" src="" alt="">
+            </div>
+        </div>
+        
         <!-- Página de Contacto -->
         <section id="contact" class="page">
             <h1>Contáctanos</h1>
@@ -1089,7 +1354,7 @@
             
             <div class="contact">
                 <div class="contact-container">
-                    <div class="contact-info">
+                    <div class="contact-info fade-in">
                         <h3>Información de Contacto</h3>
                         
                         <div class="contact-item">
@@ -1109,7 +1374,7 @@
                             <div>
                                 <h4>Teléfono</h4>
                                 <p>+58 212 555 1234</p>
-                                <p>Urgencias: +58 412 555 5678</p>
+                                <p>WhatsApp: +58 412 555 5678</p>
                             </div>
                         </div>
                         
@@ -1132,7 +1397,7 @@
                                 <h4>Horario de Atención</h4>
                                 <p>Lunes a Viernes: 8:00 am - 8:00 pm</p>
                                 <p>Sábados: 9:00 am - 4:00 pm</p>
-                                <p>Urgencias: 24/7</p>
+                                <p>Domingos: Cerrado</p>
                             </div>
                         </div>
                         
@@ -1145,14 +1410,14 @@
                                 <div class="social-icons" style="margin-top: 0.5rem;">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-tiktok"></i></a>
                                     <a href="#"><i class="fab fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="contact-form">
+                    <div class="contact-form fade-in">
                         <h3>Solicita una cita</h3>
                         <form id="contactForm">
                             <div class="form-group">
@@ -1181,9 +1446,7 @@
                                     <option value="">Seleccione...</option>
                                     <option value="perro">Perro</option>
                                     <option value="gato">Gato</option>
-                                    <option value="ave">Ave</option>
-                                    <option value="roedor">Roedor</option>
-                                    <option value="otro">Otro</option>
+                                    <option value="otro">Otra mascota</option>
                                 </select>
                             </div>
                             
@@ -1191,17 +1454,18 @@
                                 <label for="servicio">Servicio Solicitado *</label>
                                 <select id="servicio" name="servicio" required>
                                     <option value="">Seleccione...</option>
-                                    <option value="consulta">Consulta General</option>
-                                    <option value="vacunacion">Vacunación</option>
-                                    <option value="cirugia">Cirugía</option>
-                                    <option value="estetica">Servicio de Estética</option>
-                                    <option value="urgencia">Urgencia</option>
+                                    <option value="baño">Baño Completo</option>
+                                    <option value="corte">Corte de Pelo</option>
+                                    <option value="spa">Spa Canino</option>
+                                    <option value="uñas">Corte de Uñas</option>
+                                    <option value="dental">Limpieza Dental</option>
+                                    <option value="otro">Otro servicio</option>
                                 </select>
                             </div>
                             
                             <div class="form-group">
                                 <label for="comentario">Comentario</label>
-                                <textarea id="comentario" name="comentario"></textarea>
+                                <textarea id="comentario" name="comentario" placeholder="Información adicional sobre tu mascota o preferencias de servicio"></textarea>
                             </div>
                             
                             <button type="submit" class="btn btn-submit">Solicitar Cita</button>
@@ -1217,8 +1481,8 @@
         <div class="footer-container">
             <div class="footer-about">
                 <div class="footer-logo">Stadi<span>Pets</span></div>
-                <p>Clínica veterinaria especializada en el cuidado integral de tus mascotas. Más de 15 años brindando atención profesional y cariñosa.</p>
-                <p>Nuestro compromiso es la salud y felicidad de tus compañeros peludos.</p>
+                <p>Centro especializado en peluquería y cuidados caninos. Más de 15 años brindando atención profesional y cariñosa.</p>
+                <p>Nuestro compromiso es la salud, belleza y felicidad de tus compañeros peludos.</p>
             </div>
             
             <div class="footer-links">
@@ -1227,9 +1491,8 @@
                     <li><a href="#" data-page="home">Inicio</a></li>
                     <li><a href="#" data-page="services">Servicios</a></li>
                     <li><a href="#" data-page="team">Equipo</a></li>
+                    <li><a href="#" data-page="gallery">Galería</a></li>
                     <li><a href="#" data-page="contact">Contacto</a></li>
-                    <li><a href="#">Blog de Consejos</a></li>
-                    <li><a href="#">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
             
@@ -1238,17 +1501,16 @@
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
                     <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
                 
                 <div style="margin-top: 2rem;">
-                    <h3>Boletín de Salud Animal</h3>
+                    <h3>Consejos para el Cuidado</h3>
                     <p>Recibe consejos útiles para el cuidado de tu mascota.</p>
                     <form style="display: flex; margin-top: 1rem;">
-                        <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px 0 0 5px;">
-                        <button type="submit" style="background: var(--secondary); color: var(--dark); border: none; padding: 0 1rem; border-radius: 0 5px 5px 0; cursor: pointer;">
+                        <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 5px 0 0 5px; color: var(--light);">
+                        <button type="submit" style="background: var(--secondary); color: var(--primary-dark); border: none; padding: 0 1rem; border-radius: 0 5px 5px 0; cursor: pointer;">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
@@ -1257,7 +1519,7 @@
         </div>
         
         <div class="copyright">
-            <p>Clínica Veterinaria Stadi Pets | Ciudad Animal</p>
+            <p>Centro de Peluquería y Cuidados Caninos Stadi Pets | Ciudad Animal</p>
             <p>&copy; 2025 Stadi Pets. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -1331,6 +1593,69 @@
                 alert('¡Gracias por tu solicitud! Nos pondremos en contacto contigo pronto para confirmar tu cita.');
                 this.reset();
             });
+            
+            // Animación de elementos al hacer scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const appearOptions = {
+                threshold: 0.3,
+                rootMargin: "0px 0px -100px 0px"
+            };
+            
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('appear');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+            
+            fadeElements.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+            
+            // Galería modal
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const modal = document.getElementById('galleryModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeModal = document.querySelector('.close-modal');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    modal.style.display = 'flex';
+                    modalImg.src = this.getAttribute('data-src');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Animación de letras del título
+            const animateTitle = document.querySelector('.animate-title');
+            if (animateTitle) {
+                const letters = animateTitle.textContent.split('');
+                animateTitle.textContent = '';
+                
+                letters.forEach((letter, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = letter;
+                    span.style.animationDelay = `${index * 0.05}s`;
+                    animateTitle.appendChild(span);
+                });
+            }
         });
     </script>
 </body>
