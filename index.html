@@ -6,20 +6,19 @@
     <title>Dogsy - Peluquería y Cuidados Caninos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Nueva paleta de colores azul marino */
         :root {
-            --primary: #0a192f; /* Azul marino oscuro */
-            --primary-dark: #020c1b;
-            --secondary: #64ffda; /* Turquesa brillante */
-            --light: #ccd6f6; /* Azul claro */
-            --dark: #112240;
-            --gray: #8892b0;
-            --light-gray: #a8b2d1;
-            --white: #e6f1ff;
-            --accent: #5e8ac9; /* Azul medio */
+            --primary: #1a2e35;
+            --primary-dark: #0d1d22;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --light-gray: #ecf0f1;
+            --white: #ffffff;
+            --accent: #c19e53;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             --transition: all 0.4s ease;
-            --pet-green: #64ffda; /* Usando el mismo turquesa */
+            --pet-green: #27ae60;
         }
         
         * {
@@ -33,7 +32,7 @@
             line-height: 1.6;
             color: var(--light);
             background-color: var(--primary);
-            background-image: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1500470353952-6c5d8e8e9f7f?auto=format&fit=crop&w=1200&q=80');
+            background-image: linear-gradient(rgba(26, 46, 53, 0.95), rgba(26, 46, 53, 0.9)), url('https://images.unsplash.com/photo-1500470353952-6c5d8e8e9f7f?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -42,7 +41,7 @@
         
         /* Encabezado y Navegación */
         header {
-            background-color: rgba(10, 25, 47, 0.9);
+            background-color: rgba(26, 46, 53, 0.9);
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
@@ -76,7 +75,7 @@
             color: var(--primary-dark);
             font-size: 1.8rem;
             font-weight: bold;
-            box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
             animation: pulse 3s infinite;
         }
         
@@ -163,7 +162,7 @@
         
         /* Página de Inicio */
         .hero {
-            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('https://drive.google.com/uc?export=view&id=1NF9XKbi2R4-mreBhChpcbqFV7Xt7w29F') center/cover no-repeat;
+            background: linear-gradient(rgba(26, 46, 53, 0.8), rgba(26, 46, 53, 0.8)), url('https://drive.google.com/uc?export=view&id=1NF9XKbi2R4-mreBhChpcbqFV7Xt7w29F') center/cover no-repeat;
             height: 500px;
             border-radius: 10px;
             display: flex;
@@ -175,7 +174,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow);
-            border: 2px solid rgba(100, 255, 218, 0.3);
+            border: 2px solid rgba(212, 175, 55, 0.3);
         }
         
         .hero-content {
@@ -257,7 +256,7 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(5px);
         }
         
@@ -309,7 +308,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             text-align: center;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(5px);
             transition: var(--transition);
         }
@@ -338,7 +337,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(transparent 70%, rgba(10, 25, 47, 0.9));
+            background: linear-gradient(transparent 70%, rgba(26, 46, 53, 0.9));
         }
         
         .member-photo img {
@@ -387,7 +386,7 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
@@ -455,7 +454,7 @@
             border-radius: 10px;
             padding: 2rem;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(5px);
         }
         
@@ -489,7 +488,7 @@
             border-radius: 10px;
             padding: 2rem;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(5px);
         }
         
@@ -510,7 +509,7 @@
             width: 100%;
             padding: 0.8rem;
             background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(100, 255, 218, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 5px;
             font-family: inherit;
             font-size: 1rem;
@@ -523,7 +522,7 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
         
         .form-group textarea {
@@ -556,7 +555,7 @@
             padding: 3rem 0;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(5px);
         }
         
@@ -576,12 +575,12 @@
         }
         
         .testimonial-card {
-            background: rgba(10, 25, 47, 0.7);
+            background: rgba(26, 46, 53, 0.7);
             border-radius: 10px;
             padding: 1.5rem;
             box-shadow: var(--shadow);
             position: relative;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             transition: var(--transition);
         }
         
@@ -596,7 +595,7 @@
             top: 10px;
             left: 15px;
             font-size: 4rem;
-            color: rgba(100, 255, 218, 0.3);
+            color: rgba(212, 175, 55, 0.3);
             font-family: Georgia, serif;
             line-height: 1;
         }
@@ -646,11 +645,11 @@
         
         /* Pie de página */
         footer {
-            background-color: rgba(2, 12, 27, 0.9);
+            background-color: rgba(13, 29, 34, 0.9);
             color: var(--white);
             padding: 2rem 1rem;
             margin-top: 3rem;
-            border-top: 1px solid rgba(100, 255, 218, 0.3);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
         }
         
         .footer-container {
@@ -759,7 +758,7 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background-color: rgba(10, 25, 47, 0.95);
+                background-color: rgba(26, 46, 53, 0.95);
                 flex-direction: column;
                 padding: 1rem;
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -777,13 +776,39 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .features,
+            .service-grid,
+            .team-grid,
+            .testimonial-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Animaciones */
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 15px rgba(100, 255, 218, 0.5); }
-            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(100, 255, 218, 0.8); }
-            100% { transform: scale(1); box-shadow: 0 0 15px rgba(100, 255, 218, 0.5); }
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(212, 175, 55, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
         }
         
         .stats {
@@ -799,7 +824,7 @@
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             backdrop-filter: blur(5px);
             transition: var(--transition);
         }
@@ -866,7 +891,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(transparent 70%, rgba(10, 25, 47, 0.9));
+            background: linear-gradient(transparent 70%, rgba(26, 46, 53, 0.9));
         }
         
         /* Efectos de scroll */
@@ -932,11 +957,6 @@
             transform: translateY(100%);
             opacity: 0;
             animation: slideUp 0.5s forwards;
-            margin: 0 2px; /* Espacio entre letras */
-        }
-        
-        .animate-title .space {
-            width: 0.5em; /* Espacio entre palabras */
         }
         
         @keyframes slideUp {
@@ -945,9 +965,26 @@
                 opacity: 1;
             }
         }
+        
+        /* Agregado: Preloader para imágenes */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .lazy-load.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="logo" style="margin: 0 auto;">
+            <i class="fas fa-paw"></i>
+        </div>
+    </div>
+    
     <!-- Encabezado -->
     <header>
         <div class="header-container">
@@ -980,17 +1017,7 @@
         <section id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <h1 class="animate-title">
-                        <span>C</span><span>u</span><span>i</span><span>d</span><span>a</span><span>m</span><span>o</span><span>s</span>
-                        <span class="space"></span>
-                        <span>d</span><span>e</span>
-                        <span class="space"></span>
-                        <span>t</span><span>u</span>
-                        <span class="space"></span>
-                        <span>m</span><span>e</span><span>j</span><span>o</span><span>r</span>
-                        <span class="space"></span>
-                        <span>a</span><span>m</span><span>i</span><span>g</span><span>o</span>
-                    </h1>
+                    <h1 class="animate-title"><span>C</span><span>u</span><span>i</span><span>d</span><span>a</span><span>m</span><span>o</span><span>s</span> <span>d</span><span>e</span> <span>t</span><span>u</span> <span>m</span><span>e</span><span>j</span><span>o</span><span>r</span> <span>a</span><span>m</span><span>i</span><span>g</span><span>o</span></h1>
                     <p>En Dogsy ofrecemos atención especializada en peluquería y cuidados caninos con amor y profesionalismo.</p>
                     <a href="#" class="btn" data-page="contact">Solicitar cita</a>
                 </div>
@@ -1017,7 +1044,7 @@
             
             <div class="features">
                 <div class="feature-card fade-in">
-                    <div class="feature-img" style="background-color: #0a192f;">
+                    <div class="feature-img" style="background-color: #1a2e35;">
                         <i class="fas fa-shower"></i>
                     </div>
                     <div class="feature-content">
@@ -1107,14 +1134,14 @@
                 <h2>Servicios de Peluquería</h2>
                 <div class="service-grid">
                     <div class="service-card fade-in">
-                        <div class="service-img" style="background-color: #0a192f;">
+                        <div class="service-img" style="background-color: #1a2e35;">
                             <i class="fas fa-shower"></i>
                         </div>
                         <div class="service-content">
                             <h3>Baño Completo</h3>
                             <div class="service-price">Desde $25</div>
                             <p class="service-description">Baño con productos naturales, secado profesional y cepillado para eliminar enredos.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                     
@@ -1126,7 +1153,7 @@
                             <h3>Corte de Pelo</h3>
                             <div class="service-price">Desde $35</div>
                             <p class="service-description">Corte según raza o estilo personalizado que prefieras para tu mascota.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                     
@@ -1138,7 +1165,7 @@
                             <h3>Limpieza Dental</h3>
                             <div class="service-price">Desde $40</div>
                             <p class="service-description">Cuidado dental profesional para prevenir enfermedades y mal aliento.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                     
@@ -1150,7 +1177,7 @@
                             <h3>Corte de Uñas</h3>
                             <div class="service-price">$15</div>
                             <p class="service-description">Corte profesional y seguro de uñas para mantener la salud de las patas.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                 </div>
@@ -1167,7 +1194,7 @@
                             <h3>Spa Canino</h3>
                             <div class="service-price">Desde $50</div>
                             <p class="service-description">Masaje relajante, tratamiento hidratante y aromaterapia para tu mascota.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                     
@@ -1179,7 +1206,7 @@
                             <h3>Tratamiento Antipulgas</h3>
                             <div class="service-price">Desde $30</div>
                             <p class="service-description">Baño y tratamiento natural para eliminar y prevenir pulgas y garrapatas.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                     
@@ -1191,7 +1218,7 @@
                             <h3>Cuidado Geriátrico</h3>
                             <div class="service-price">Desde $45</div>
                             <p class="service-description">Tratamientos especiales para mascotas mayores con necesidades especiales.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                     
@@ -1203,7 +1230,7 @@
                             <h3>Tratamiento Dermatológico</h3>
                             <div class="service-price">Consultar precio</div>
                             <p class="service-description">Para mascotas con problemas de piel, alergias o irritaciones.</p>
-                            <a href="#" class="btn">Reservar</a>
+                            <a href="#" class="btn" data-page="contact">Reservar</a>
                         </div>
                     </div>
                 </div>
@@ -1219,7 +1246,8 @@
                 <h2>Peluqueros Caninos</h2>
                 <div class="team-grid">
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583512603806-077998240c7a?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1583512603806-077998240c7a?auto=format&fit=crop&w=600&q=80" alt="Lucía Fernández" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>Lucía Fernández</h3>
@@ -1229,7 +1257,8 @@
                     </div>
                     
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1590086782792-42dd2350140d?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1590086782792-42dd2350140d?auto=format&fit=crop&w=600&q=80" alt="Carlos Mendoza" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>Carlos Mendoza</h3>
@@ -1239,7 +1268,8 @@
                     </div>
                     
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&w=600&q=80" alt="María Rojas" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>María Rojas</h3>
@@ -1249,7 +1279,8 @@
                     </div>
                     
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1590086782957-27c1e15b1e0e?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1590086782957-27c1e15b1e0e?auto=format&fit=crop&w=600&q=80" alt="Javier López" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>Javier López</h3>
@@ -1264,7 +1295,8 @@
                 <h2>Cuidadores y Asistentes</h2>
                 <div class="team-grid">
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=600&q=80" alt="Ana Torres" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>Ana Torres</h3>
@@ -1274,7 +1306,8 @@
                     </div>
                     
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1590086782978-5a618b238e37?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1590086782978-5a618b238e37?auto=format&fit=crop&w=600&q=80" alt="Miguel Ángel Díaz" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>Miguel Ángel Díaz</h3>
@@ -1284,7 +1317,8 @@
                     </div>
                     
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583511655826-05700d52b31e?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1583511655826-05700d52b31e?auto=format&fit=crop&w=600&q=80" alt="Sofía Gutiérrez" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>Sofía Gutiérrez</h3>
@@ -1294,7 +1328,8 @@
                     </div>
                     
                     <div class="team-member fade-in">
-                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1583512603808-cf1f18a4d0a5?auto=format&fit=crop&w=600&q=80');">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1583512603808-cf1f18a4d0a5?auto=format&fit=crop&w=600&q=80" alt="Roberto Sánchez" loading="lazy" class="lazy-load">
                         </div>
                         <div class="member-info">
                             <h3>Roberto Sánchez</h3>
@@ -1315,22 +1350,22 @@
                 <h2>Antes y Después</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro antes del corte">
+                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro antes del corte" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del corte">
+                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del corte" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro antes del baño">
+                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro antes del baño" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del baño">
+                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del baño" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro con problemas de pelo">
+                        <img src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?auto=format&fit=crop&w=600&q=80" alt="Perro con problemas de pelo" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del tratamiento">
+                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?auto=format&fit=crop&w=600&q=80" alt="Perro después del tratamiento" loading="lazy" class="lazy-load">
                     </div>
                 </div>
             </div>
@@ -1339,16 +1374,16 @@
                 <h2>Nuestras Instalaciones</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Sala de espera">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Sala de espera" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Área de baño">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Área de baño" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Área de corte">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Área de corte" loading="lazy" class="lazy-load">
                     </div>
                     <div class="gallery-item fade-in" data-src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80">
-                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Sala de spa">
+                        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Sala de spa" loading="lazy" class="lazy-load">
                     </div>
                 </div>
             </div>
@@ -1524,7 +1559,7 @@
                     <h3>Consejos para el Cuidado</h3>
                     <p>Recibe consejos útiles para el cuidado de tu mascota.</p>
                     <form style="display: flex; margin-top: 1rem;">
-                        <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(100, 255, 218, 0.3); border-radius: 5px 0 0 5px; color: var(--light);">
+                        <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 0.8rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 5px 0 0 5px; color: var(--light);">
                         <button type="submit" style="background: var(--secondary); color: var(--primary-dark); border: none; padding: 0 1rem; border-radius: 0 5px 5px 0; cursor: pointer;">
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -1540,6 +1575,11 @@
     </footer>
     
     <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            document.getElementById('preloader').style.display = 'none';
+        });
+
         // Navegación entre páginas
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -1604,7 +1644,7 @@
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Aquí iría la lógica para enviar el formulario
+                // Simulación de envío exitoso
                 alert('¡Gracias por tu solicitud! Nos pondremos en contacto contigo pronto para confirmar tu cita.');
                 this.reset();
             });
@@ -1642,6 +1682,7 @@
                 item.addEventListener('click', function() {
                     modal.style.display = 'flex';
                     modalImg.src = this.getAttribute('data-src');
+                    modalImg.alt = this.querySelector('img').alt;
                     document.body.style.overflow = 'hidden';
                 });
             });
@@ -1661,25 +1702,41 @@
             // Animación de letras del título
             const animateTitle = document.querySelector('.animate-title');
             if (animateTitle) {
-                const text = animateTitle.textContent;
+                const letters = animateTitle.textContent.split('');
                 animateTitle.textContent = '';
                 
-                for (let i = 0; i < text.length; i++) {
-                    const char = text[i];
-                    if (char === ' ') {
-                        // Para espacios, crear un span con clase "space"
-                        const spaceSpan = document.createElement('span');
-                        spaceSpan.className = 'space';
-                        spaceSpan.innerHTML = '&nbsp;';
-                        animateTitle.appendChild(spaceSpan);
-                    } else {
-                        const span = document.createElement('span');
-                        span.textContent = char;
-                        span.style.animationDelay = `${i * 0.05}s`;
-                        animateTitle.appendChild(span);
-                    }
-                }
+                letters.forEach((letter, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = letter;
+                    span.style.animationDelay = `${index * 0.05}s`;
+                    animateTitle.appendChild(span);
+                });
             }
+            
+            // Lazy loading para imágenes
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            
+            const lazyLoadOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px 100px 0px"
+            };
+            
+            const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, lazyLoadOptions);
+            
+            lazyImages.forEach(img => {
+                if (!img.classList.contains('loaded')) {
+                    lazyLoadObserver.observe(img);
+                }
+            });
         });
     </script>
 </body>
