@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogsy - Peluquería y Cuidados Caninos</title>
+    <title>Dogsy - Peluquería Canina por Stadimir</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
             line-height: 1.6;
             color: var(--light-slate);
             background-color: var(--navy);
-            background-image: linear-gradient rgba(10, 25, 47, 0.95), url('https://www.facebook.com/photo/?fbid=122211131168115328&set=a.122211131216115328&__cft__[0]=AZXVQSObz3U-vJVzhrNG6iYIsZMmnWQn1Jq5NHQJCBe5aZW6dP0_kHsJSLHQMbVgbPyfyJ817E6hE4521hsTAG58kWt7FOCWmfB6UEAjqvvD-A&__tn__=EH-R');
+            background-image: linear-gradient(rgba(10, 25, 47, 0.95), url('https://www.facebook.com/photo/?fbid=122211131168115328&set=a.122211131216115328');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -330,6 +330,37 @@
             display: block;
         }
         
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin: 100px 0;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 3px solid var(--accent-light);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
         /* Features Section */
         .features {
             background: rgba(17, 34, 64, 0.6);
@@ -411,45 +442,6 @@
             font-weight: 600;
             font-size: 1.3rem;
             margin: 15px 0;
-            display: block;
-        }
-        
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .team-member {
-            background: var(--lightest-navy);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            text-align: center;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow);
-        }
-        
-        .member-photo {
-            height: 300px;
-            background: var(--light-navy);
-            position: relative;
-        }
-        
-        .member-info {
-            padding: 25px;
-        }
-        
-        .member-position {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 15px;
             display: block;
         }
         
@@ -810,6 +802,10 @@
             h2 {
                 font-size: 2.2rem;
             }
+            
+            .about {
+                flex-direction: column;
+            }
         }
         
         @media (max-width: 768px) {
@@ -873,6 +869,14 @@
             .contact-container, .footer-container {
                 grid-template-columns: 1fr;
             }
+            
+            .features {
+                padding: 30px 15px;
+            }
+            
+            .feature-card, .service-card, .testimonial-card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -894,8 +898,8 @@
             <nav>
                 <ul>
                     <li><a href="#home" class="nav-link active">Inicio</a></li>
+                    <li><a href="#about" class="nav-link">Sobre Mí</a></li>
                     <li><a href="#services" class="nav-link">Servicios</a></li>
-                    <li><a href="#team" class="nav-link">Equipo</a></li>
                     <li><a href="#testimonials" class="nav-link">Testimonios</a></li>
                     <li><a href="#contact" class="nav-link">Contacto</a></li>
                 </ul>
@@ -907,8 +911,8 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Peluquería y Cuidados Caninos <span class="hero-highlight">Profesionales</span></h1>
-                <p>En Dogsy, dirigido por Stadimir, ofrecemos servicios de primera calidad para consentir a tu mejor amigo. Con más de 15 años de experiencia, garantizamos resultados excepcionales con amor y profesionalismo.</p>
+                <h1>Peluquería Canina <span class="hero-highlight">Profesional</span></h1>
+                <p>En Dogsy, con más de 5 años de experiencia, ofrezco servicios de primera calidad para consentir a tu mejor amigo. Resultados excepcionales con amor y profesionalismo.</p>
                 <div class="hero-btns">
                     <a href="#services" class="btn btn-primary">Nuestros Servicios</a>
                     <a href="#contact" class="btn">Reserva una Cita</a>
@@ -916,6 +920,23 @@
             </div>
             <div class="hero-image fade-in">
                 <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80" alt="Perro feliz después del cuidado en peluquería">
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-image fade-in">
+                <img src="https://www.facebook.com/photo/?fbid=122211131168115328&set=a.122211131216115328" alt="Stadimir Paz - Peluquera Canina Profesional">
+            </div>
+            <div class="about-content">
+                <h2>Sobre Mí</h2>
+                <p>¡Hola! Soy Stadimir Paz, fundadora y peluquera canina profesional en Dogsy con más de 5 años de experiencia en el cuidado de mascotas.</p>
+                <p>Mi pasión por los animales me llevó a especializarme en peluquería canina, donde combino técnicas profesionales con un trato amoroso y respetuoso hacia cada mascota que llega a mi salón.</p>
+                <p>En Dogsy, cada servicio es personalizado según las necesidades de tu mascota, garantizando su comodidad y bienestar en todo momento.</p>
+                <p>Estoy certificada en técnicas de peluquería avanzada y continuamente me capacito para ofrecer los mejores servicios y tratamientos para tus compañeros peludos.</p>
+                <a href="#contact" class="btn btn-primary">Conoce más sobre mi trabajo</a>
             </div>
         </div>
     </section>
@@ -937,7 +958,7 @@
                         <i class="fas fa-cut"></i>
                     </div>
                     <h3>Cortes Especializados</h3>
-                    <p>Cortes de raza o estilizados realizados por profesionales certificados con años de experiencia.</p>
+                    <p>Cortes de raza o estilizados realizados con años de experiencia y atención al detalle.</p>
                 </div>
                 
                 <div class="feature-card fade-in">
@@ -955,6 +976,8 @@
     <section id="services" class="services">
         <div class="container">
             <h2>Nuestros Servicios</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px;">Ofrezco una variedad de servicios profesionales para mantener a tu mascota saludable, limpia y feliz.</p>
+            
             <div class="services-grid">
                 <div class="service-card fade-in">
                     <div class="service-img">
@@ -1007,49 +1030,6 @@
         </div>
     </section>
     
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2>Nuestro Equipo</h2>
-            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px;">En Dogsy contamos con un equipo de peluqueros y cuidadores altamente capacitados y apasionados por el bienestar animal, liderados por Stadimir.</p>
-            
-            <div class="team-grid">
-                <div class="team-member fade-in">
-                    <div class="member-photo" style="background: #1a3b5a;">
-                        <div style="color: var(--accent); font-size: 4rem; font-weight: bold;">S</div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Stadimir Rodríguez</h3>
-                        <span class="member-position">Fundadora & Peluquera Principal</span>
-                        <p>Con más de 15 años de experiencia en peluquería canina y certificaciones internacionales.</p>
-                    </div>
-                </div>
-                
-                <div class="team-member fade-in">
-                    <div class="member-photo" style="background: #2a4b6a;">
-                        <div style="color: var(--accent); font-size: 4rem; font-weight: bold;">M</div>
-                    </div>
-                    <div class="member-info">
-                        <h3>María Gómez</h3>
-                        <span class="member-position">Especialista en Cortes</span>
-                        <p>Experta en cortes de moda y técnicas creativas para hacer de tu mascota la más estilosa.</p>
-                    </div>
-                </div>
-                
-                <div class="team-member fade-in">
-                    <div class="member-photo" style="background: #3a5b7a;">
-                        <div style="color: var(--accent); font-size: 4rem; font-weight: bold;">C</div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Carlos Mendoza</h3>
-                        <span class="member-position">Especialista en Baños</span>
-                        <p>Con un toque mágico para calmar a las mascotas más nerviosas durante el baño.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
@@ -1072,7 +1052,7 @@
                 
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-text">
-                        "Llevo a mis perros aquí desde hace 5 años. Siempre reciben la mejor atención y los tratamientos son muy efectivos. ¡Recomendado 100%! Stadimir y su equipo son profesionales excepcionales."
+                        "Llevo a mis perros aquí desde hace 3 años. Siempre reciben la mejor atención y los tratamientos son muy efectivos. ¡Recomendado 100%! Stadimir es una profesional excepcional."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
@@ -1087,14 +1067,14 @@
                 
                 <div class="testimonial-card fade-in">
                     <div class="testimonial-text">
-                        "El equipo de Dogsy es increíble. Mi perro tiene miedo a los baños y ellos fueron muy pacientes y amables con él. ¡Volveremos siempre! Gracias Stadimir por tu paciencia y dedicación."
+                        "Mi perro tiene miedo a los baños y Stadimir fue muy paciente y amable con él. ¡Volveremos siempre! Gracias por tu paciencia y dedicación."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
                             M
                         </div>
                         <div class="author-info">
-                            <h4>María Rodríguez</h4>
+                            <h4>María Paz</h4>
                             <p>Dueña de Luna (Labrador)</p>
                         </div>
                     </div>
@@ -1107,7 +1087,7 @@
     <section class="gallery">
         <div class="container">
             <h2>Nuestros Trabajos</h2>
-            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Algunos ejemplos de nuestros trabajos de peluquería canina y cuidados especiales.</p>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Algunos ejemplos de mis trabajos de peluquería canina y cuidados especiales.</p>
             
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
@@ -1130,7 +1110,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>Contáctanos</h2>
-            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px;">Estamos aquí para responder todas tus preguntas y atender a tu mascota con el cuidado que se merece.</p>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 50px;">Estoy aquí para responder todas tus preguntas y atender a tu mascota con el cuidado que se merece.</p>
             
             <div class="contact-container">
                 <div class="contact-info fade-in">
@@ -1265,16 +1245,16 @@
                         </div>
                         <div class="company-name">Dog<span>sy</span></div>
                     </div>
-                    <p>Centro especializado en peluquería y cuidados caninos. Más de 15 años brindando atención profesional y cariñosa.</p>
-                    <p>Nuestro compromiso es la salud, belleza y felicidad de tus compañeros peludos.</p>
+                    <p>Peluquería canina profesional con más de 5 años de experiencia, ofreciendo servicios de calidad para tu mascota.</p>
+                    <p>Mi compromiso es la salud, belleza y felicidad de tus compañeros peludos.</p>
                 </div>
                 
                 <div class="footer-links">
                     <h3>Enlaces Rápidos</h3>
                     <ul>
                         <li><a href="#home">Inicio</a></li>
+                        <li><a href="#about">Sobre Mí</a></li>
                         <li><a href="#services">Servicios</a></li>
-                        <li><a href="#team">Equipo</a></li>
                         <li><a href="#testimonials">Testimonios</a></li>
                         <li><a href="#contact">Contacto</a></li>
                     </ul>
@@ -1303,8 +1283,8 @@
             </div>
             
             <div class="copyright">
-                <p>Centro de Peluquería y Cuidados Caninos Dogsy | Ciudad Animal</p>
-                <p>&copy; 2025 Dogsy. Todos los derechos reservados. Fundado por Stadimir Rodríguez</p>
+                <p>Peluquería Canina Dogsy | Ciudad Animal</p>
+                <p>&copy; 2025 Dogsy. Todos los derechos reservados. Fundado por Stadimir Paz</p>
             </div>
         </div>
     </footer>
@@ -1425,6 +1405,25 @@
             
             // Initialize current section on page load
             window.dispatchEvent(new Event('scroll'));
+            
+            // Lazy loading for images
+            const lazyImages = document.querySelectorAll('img');
+            
+            const lazyLoad = function() {
+                lazyImages.forEach(img => {
+                    if (img.getAttribute('data-src') && img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0 && getComputedStyle(img).display !== 'none') {
+                        img.src = img.getAttribute('data-src');
+                        img.removeAttribute('data-src');
+                    }
+                });
+            };
+            
+            // Initial load
+            lazyLoad();
+            
+            // Listen to scroll events
+            window.addEventListener('scroll', lazyLoad);
+            window.addEventListener('resize', lazyLoad);
         });
     </script>
 </body>
